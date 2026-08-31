@@ -10,17 +10,17 @@ atualizado_em: 2026-08-31
 
 # Estado do /init — Calculadora de Preço por Ponto
 
-Arquivo de estado do Aucta Dev Init. Registra **progresso**, não conteúdo: respostas e decisões vivem nos artefatos canônicos. Atualizado e commitado pelo agente a cada avanço material.
+Arquivo de estado do Aucta Dev Init. Registra **progresso**, não conteúdo. Atualizado e commitado pelo agente a cada avanço material.
 
 ## Sub-skills
 
 | Sub-skill | Status | Última atualização | Evidência |
 | --- | --- | --- | --- |
 | init-interview | concluida | 2026-08-31 | PROJECT.md, TRUTHS.md, GLOSSARY.md, ACCEPTANCE.md, OWNERS.md |
-| init-repo | em_andamento | 2026-08-31 | AUTO ok: estrutura, templates, CODEOWNERS, golden cases, VERSION (82244f3); branch baseline/v0 (bac3bd4). Pendentes: ver Blockers |
-| init-data | concluida | 2026-08-31 | .project/DATA_CATALOG.md (4 fontes, 8 campos); fixture sanitizada tests/fixtures/contatos_fixture.csv |
-| init-plugin | pendente | | |
-| init-check | pendente | | |
+| init-repo | em_andamento | 2026-08-31 | AUTO ok (82244f3); baseline/v0 (bac3bd4). Assistidos pendentes: ver Blockers |
+| init-data | concluida | 2026-08-31 | .project/DATA_CATALOG.md; fixture tests/fixtures/contatos_fixture.csv |
+| init-plugin | concluida | 2026-08-31 | project-plugin/ (8e55883); manifesto D3; drift check exercitado |
+| init-check | concluida | 2026-08-31 | Preflight P1–P10 executado; harness verde na base e falhando com margem alterada; dry run /start-work simulado. Veredito: NÃO PRONTO (gates tier 2 pendentes) |
 
 ## init-interview — blocos
 
@@ -30,32 +30,35 @@ Arquivo de estado do Aucta Dev Init. Registra **progresso**, não conteúdo: res
 | B. Escopo e fronteiras | concluida | |
 | C. Stakeholders e decisão | concluida | valida número: Ricardo Nunes (tier 2) |
 | D. Entregáveis e aceite | concluida | golden cases GC-01–GC-03 |
-| E. Dados e fontes | concluida | DATA_CATALOG.md com 4 fontes; planilha oficial `não validado` (premissa de estrutura) |
-| F. Segurança e privacidade | concluida | PII identificada na fonte de contatos — fora do Git; fixture sanitizada |
-| G. IP e licenças | concluida | código da Aucta; sem libs de terceiros |
+| E. Dados e fontes | concluida | DATA_CATALOG.md com 4 fontes |
+| F. Segurança e privacidade | concluida | PII fora do Git; fixture sanitizada |
+| G. IP e licenças | concluida | código da Aucta |
 | H. Arquitetura inicial | concluida | HTML único, sem backend |
-| I. Ambientes e acessos | concluida | GitHub (AuctaFerrari) + SharePoint do projeto |
-| J. Repositório e governança | em_andamento | init-repo: AUTO concluídos; assistidos pendentes |
-| K. Estratégia de testes | concluida | golden cases obrigatórios (tier 2); harness em .github/ci/run-checks.sh |
+| I. Ambientes e acessos | concluida | GitHub ok; SharePoint sem conector (blocker administrativo) |
+| J. Repositório e governança | em_andamento | assistidos pendentes (Blockers) |
+| K. Estratégia de testes | concluida | harness verde (base); falha detectada com margem 0.12 (camada 3 D4 funcional) |
 | L. Conhecimento canônico | concluida | TRUTHS-001–004 + glossário |
-| M. Plugin e skill stack | pendente | executado no init-plugin |
-| N. Release e sustentação | concluida | entrega via SharePoint; sustentação Aucta pós-v1 |
-| O. Baseline | em_andamento | branch baseline/v0 criada (bac3bd4); tag baseline-v0 pendente (UI) |
+| M. Plugin e skill stack | concluida | project-plugin/ gerado; stack justificado |
+| N. Release e sustentação | concluida | entrega via SharePoint; sustentação Aucta |
+| O. Baseline | em_andamento | branch baseline/v0 ok; tag baseline-v0 pendente (UI) |
 
 ## Premissas
 
-- Usuário único (analista comercial) na v1 — confirmar com sponsor se surgir segundo perfil.
-- Atualização mensal da base de pontos é suficiente — confirmar com Operações.
-- Estrutura da planilha oficial "pontos" idêntica ao extrato versionado — validar no primeiro acesso ao SharePoint.
+- Usuário único (analista comercial) na v1 — confirmar com sponsor.
+- Atualização mensal da base de pontos — confirmar com Operações.
+- Estrutura da planilha oficial idêntica ao extrato — validar no primeiro acesso ao SharePoint.
+- GitHub Project não verificável pelo conector — confirmação do consultor valerá como evidência.
 
 ## Blockers
 
-- CI workflow (.github/workflows/ci.yml): app GitHub sem permissão "Workflows" (403). Destravar: conceder Workflows (Read and write) ao app Claude e re-executar, OU criar o arquivo pelo editor web (conteúdo fornecido). Owner: Caio.
-- Proteção da main: Settings → Branches → ruleset para main (PR obrigatório, 1 review, status check `checks`, conversas resolvidas, sem force push/delete). Owner: Caio.
-- Labels de governança (risco-0..3, muda-numero, bug, feature, security, release): criar em Issues → Labels. Owner: Caio.
-- GitHub Project (Backlog/Ready/In progress/Review/Validação/Done) vinculado ao repo. Owner: Caio.
-- Tag baseline-v0: Releases → Draft a new release → create tag baseline-v0 em main. Owner: Caio.
+- [P3] Permissão Workflows do app GitHub (403 ao criar .github/workflows/ci.yml). Correção: Settings → GitHub Apps → Claude → Workflows: Read and write; agente re-executa o push. Owner: Caio.
+- [P4] Proteção da main ausente (push direto aceito — evidência real). Correção: ruleset em Settings → Branches (PR, 1 review, check `checks`, sem force push). Owner: Caio.
+- [P4] Labels de governança ausentes (get_label muda-numero → 404). Correção: criar labels conforme init-repo item 5. Owner: Caio.
+- [P4] GitHub Project pendente. Owner: Caio.
+- [O] Tag baseline-v0 pendente (Releases → new tag). Owner: Caio.
+- [P8] CI sem workflow (consequência do P3). Owner: Caio → agente.
+- [P9] Conector SharePoint ausente na sessão — blocker administrativo para o arquivo de releases; não trava desenvolvimento. Owner: Caio.
 
 ## Retomada
 
-- Próximo passo: init-plugin (gerar plugin do projeto) — em paralelo, consultor executa os itens assistidos do init-repo para o agente validar e fechar T2.
+- Próximo passo: consultor executa itens de UI (P3/P4/O); agente valida (push rejeitado, get_label, PR de teste do CI — T2.4), fecha init-repo e reemite o Definition of Ready (esperado: PRONTO).
