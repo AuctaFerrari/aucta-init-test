@@ -1,0 +1,4 @@
+caso,fator_regiao,tarifa_base,custo_manutencao,preco_esperado
+GC-01,1.00,1200,350,1705.00
+GC-02,1.15,1150,350,1897.50
+GC-03,1.30,1300,350,2359.50
