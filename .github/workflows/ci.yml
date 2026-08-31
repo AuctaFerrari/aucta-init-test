@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run project checks
+        run: |
+          if [ -f .github/ci/run-checks.sh ]; then
+            bash .github/ci/run-checks.sh
+          elif [ -f package.json ]; then
+            npm ci --no-audit && npm test --if-present
+          else
+            echo "Nenhum check configurado ainda"
+          fi
