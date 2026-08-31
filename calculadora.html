@@ -18,8 +18,9 @@
 <p id="resultado"></p>
 <script>
 // Regra sintética: preco_mensal = (tarifa_base + custo_manutencao) * fator_regiao
-// Margem mínima de 10% aplicada sobre o custo total (regras_preco.md, R2)
-const MARGEM_MINIMA = 0.10;
+// Margem mínima de 12% aplicada sobre o custo total (regras_preco.md R2,
+// aprovação simulada do Comercial 2026-08-30 — Issue #2)
+const MARGEM_MINIMA = 0.12;
 function calcular() {
   const tarifa = parseFloat(document.getElementById('tarifa').value);
   const manutencao = parseFloat(document.getElementById('manutencao').value);

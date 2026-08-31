@@ -13,7 +13,7 @@
 | # | Critério (testável) | Como provar |
 | --- | --- | --- |
 | ACC-001 | Preço calculado confere com a regra R1 para qualquer ponto da base | Golden cases GC-01–GC-03 |
-| ACC-002 | Margem mínima de 10% aplicada em todo cálculo | Golden cases + inspeção de parâmetro nomeado |
+| ACC-002 | Margem mínima de 12% aplicada em todo cálculo (Issue #2; 10% até 2026-08-30) | Golden cases + inspeção de parâmetro nomeado |
 | ACC-003 | Fatores de região conformes à R3 | Teste unitário dos fatores |
 | ACC-004 | Analista consegue cotar um ponto em menos de 1 minuto | Demonstração com usuário-chave |
 
@@ -36,7 +36,7 @@
 
 | Tipo | Aplicação neste projeto |
 | --- | --- |
-| Golden cases | **Obrigatórios antes de qualquer mudança de regra/parâmetro** (tier 2). GC-01: Capital, tarifa 1200 + manutenção 350 → R$ 1.705,00. GC-02: Interior, 1150 + 350 → R$ 1.897,50. GC-03: Remota, 1300 + 350 → R$ 2.359,50. Referência externa: planilha manual validada pelo Comercial (não recalculada pelo código sob teste). |
+| Golden cases | **Obrigatórios antes de qualquer mudança de regra/parâmetro** (tier 2). GC-01: Capital, tarifa 1200 + manutenção 350 → R$ 1.736,00. GC-02: Interior, 1150 + 350 → R$ 1.932,00. GC-03: Remota, 1300 + 350 → R$ 2.402,40. Referência externa: planilha manual validada pelo Comercial (não recalculada pelo código sob teste). |
 | Smoke / E2E | Abrir calculadora, cotar um ponto de cada região, exportar resultado |
 | Regressão | Golden cases before/after em toda mudança Muda-numero |
 | Dados | Schema e completude do extrato dados/pontos.csv a cada atualização mensal |
