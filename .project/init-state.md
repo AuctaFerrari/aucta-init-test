@@ -17,8 +17,8 @@ Arquivo de estado do Aucta Dev Init. Registra **progresso**, não conteúdo: res
 | Sub-skill | Status | Última atualização | Evidência |
 | --- | --- | --- | --- |
 | init-interview | concluida | 2026-08-31 | PROJECT.md, TRUTHS.md, GLOSSARY.md, ACCEPTANCE.md, OWNERS.md |
-| init-repo | em_andamento | 2026-08-31 | AUTO ok: estrutura, templates, CODEOWNERS, golden cases, VERSION (commit 82244f3); branch baseline/v0 (bac3bd4). Pendentes: ver Blockers |
-| init-data | pendente | | |
+| init-repo | em_andamento | 2026-08-31 | AUTO ok: estrutura, templates, CODEOWNERS, golden cases, VERSION (82244f3); branch baseline/v0 (bac3bd4). Pendentes: ver Blockers |
+| init-data | concluida | 2026-08-31 | .project/DATA_CATALOG.md (4 fontes, 8 campos); fixture sanitizada tests/fixtures/contatos_fixture.csv |
 | init-plugin | pendente | | |
 | init-check | pendente | | |
 
@@ -30,8 +30,8 @@ Arquivo de estado do Aucta Dev Init. Registra **progresso**, não conteúdo: res
 | B. Escopo e fronteiras | concluida | |
 | C. Stakeholders e decisão | concluida | valida número: Ricardo Nunes (tier 2) |
 | D. Entregáveis e aceite | concluida | golden cases GC-01–GC-03 |
-| E. Dados e fontes (inventário) | concluida | inventário: planilha pontos (Operações) + extrato CSV + docs/regras_preco.md — detalhamento no init-data |
-| F. Segurança e privacidade | concluida | sem PII; base operacional sem dado pessoal; sem autenticação |
+| E. Dados e fontes | concluida | DATA_CATALOG.md com 4 fontes; planilha oficial `não validado` (premissa de estrutura) |
+| F. Segurança e privacidade | concluida | PII identificada na fonte de contatos — fora do Git; fixture sanitizada |
 | G. IP e licenças | concluida | código da Aucta; sem libs de terceiros |
 | H. Arquitetura inicial | concluida | HTML único, sem backend |
 | I. Ambientes e acessos | concluida | GitHub (AuctaFerrari) + SharePoint do projeto |
@@ -46,6 +46,7 @@ Arquivo de estado do Aucta Dev Init. Registra **progresso**, não conteúdo: res
 
 - Usuário único (analista comercial) na v1 — confirmar com sponsor se surgir segundo perfil.
 - Atualização mensal da base de pontos é suficiente — confirmar com Operações.
+- Estrutura da planilha oficial "pontos" idêntica ao extrato versionado — validar no primeiro acesso ao SharePoint.
 
 ## Blockers
 
@@ -57,4 +58,4 @@ Arquivo de estado do Aucta Dev Init. Registra **progresso**, não conteúdo: res
 
 ## Retomada
 
-- Próximo passo: consultor executa os 5 itens assistidos acima; agente valida cada um (push de teste rejeitado para proteção; get_label para labels; PR de teste para CI — T2.4) e fecha init-repo.
+- Próximo passo: init-plugin (gerar plugin do projeto) — em paralelo, consultor executa os itens assistidos do init-repo para o agente validar e fechar T2.
