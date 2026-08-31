@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Calculadora de Preço por Ponto — mini-Tecban (sintético)</title>
+</head>
+<body>
+<h1>Calculadora de Preço por Ponto</h1>
+<label>Tarifa base (R$): <input id="tarifa" type="number" value="1200"></label><br>
+<label>Custo de manutenção (R$): <input id="manutencao" type="number" value="350"></label><br>
+<label>Região:
+<select id="regiao">
+  <option value="1.00">Capital</option>
+  <option value="1.15">Interior</option>
+  <option value="1.30">Remota</option>
+</select></label><br>
+<button onclick="calcular()">Calcular</button>
+<p id="resultado"></p>
+<script>
+// Regra sintética: preco_mensal = (tarifa_base + custo_manutencao) * fator_regiao
+// Margem mínima de 10% aplicada sobre o custo total (regras_preco.md, R2)
+const MARGEM_MINIMA = 0.10;
+function calcular() {
+  const tarifa = parseFloat(document.getElementById('tarifa').value);
+  const manutencao = parseFloat(document.getElementById('manutencao').value);
+  const fator = parseFloat(document.getElementById('regiao').value);
+  const custo = (tarifa + manutencao) * fator;
+  const preco = custo * (1 + MARGEM_MINIMA);
+  document.getElementById('resultado').textContent =
+    'Preço mensal por ponto: R$ ' + preco.toFixed(2);
+}
+</script>
+</body>
+</html>

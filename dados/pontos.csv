@@ -1,0 +1,7 @@
+ponto_id,regiao,qtd_equipamentos,tarifa_base
+P001,Capital,2,1200
+P002,Capital,1,1200
+P003,Interior,3,1150
+P004,Interior,1,1150
+P005,Remota,2,1300
+P006,Remota,1,1300
