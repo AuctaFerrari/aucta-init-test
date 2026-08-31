@@ -7,8 +7,8 @@ Source: docs/regras_preco.md (R1), aprovado pelo Comercial do cliente em 2026-08
 Owner: Comercial (cliente)
 Last reviewed: 2026-08-31
 
-TRUTH-002 │ A margem mínima é de 10% sobre o custo total; abaixo disso exige aprovação do Comercial.
-Source: docs/regras_preco.md (R2) — confirmado pelo consultor em 2026-08-31 após contradição apontada (12% citado em conversa não prevalece)
+TRUTH-002 │ A margem mínima é de 12% sobre o custo total; abaixo disso exige aprovação do Comercial.
+Source: aprovação simulada do Comercial (Ricardo Nunes), e-mail de 2026-08-30 — Issue #2 (era 10% pela regra de 2026-08-15)
 Owner: Comercial (cliente)
 Last reviewed: 2026-08-31
 

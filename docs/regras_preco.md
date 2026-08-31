@@ -1,6 +1,6 @@
 # Regras de precificação por ponto (documento sintético do cliente)
 
-**Fonte oficial:** aprovado pelo Comercial do cliente em 2026-08-15.
+**Fonte oficial:** aprovado pelo Comercial do cliente em 2026-08-15; margem mínima revisada em 2026-08-30 (aprovação simulada — Issue #2).
 
 ## Contexto
 
@@ -9,7 +9,7 @@ O cliente opera uma rede de pontos de autoatendimento e precisa cotar o preço m
 ## Regras vigentes
 
 - R1. O preço é calculado **por ponto, por mês**: `preco_mensal = (tarifa_base + custo_manutencao) * fator_regiao`.
-- R2. A margem mínima é de **10%** sobre o custo total; propostas abaixo disso exigem aprovação do Comercial.
+- R2. A margem mínima é de **12%** sobre o custo total; propostas abaixo disso exigem aprovação do Comercial. (10% até 2026-08-30.)
 - R3. Fatores de região vigentes: Capital 1,00 · Interior 1,15 · Remota 1,30.
 - R4. A base oficial de pontos é a planilha `pontos` mantida pela Operações (extrato em dados/pontos.csv).
 
